@@ -7,3 +7,8 @@ Hi
  * Time: 1:37 PM
  */
 
+$firstName = "Doug";
+$lastName = "Rose";
+
+echo "$firstName $lastName";
+// OR --> echo $firstName . " " . $lastName;
