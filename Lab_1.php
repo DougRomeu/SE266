@@ -1,14 +1,16 @@
+
 <?php
+//Douglas Rose --- Lab 1
 $randNum = 0;
 $strHex = "";
 
-function getHex()
+function getHex()//Get Hex Value
 {
     $strHex = "";
     for ($i = 0; $i < 6; $i++)
     {
         $randNum = mt_rand(1,15);
-        switch($randNum)
+        switch($randNum)//change 10-15 to A-F
         {
             case 1:
                 $strTemp = "1";
@@ -67,13 +69,11 @@ $table = "<table>";
 for ($rows = 1; $rows <= 10; $rows++)
 {
     $table .= "\t<tr>";
-
     for($cols = 1; $cols <= 10; $cols++)
     {
-        $strHex = getHex();
+        $strHex = getHex();//Get the hex number
         $table .= "<td style='background-color:#$strHex;'>$strHex<br /><span style='color:#ffffff;'>$strHex</span></td>";
     }
-
     $table .= "</tr>\n";
 }
 $table .= "</table>";
