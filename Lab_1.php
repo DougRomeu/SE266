@@ -2,16 +2,65 @@
 $randNum = 0;
 $strHex = "";
 
-function getRand()
-{
-    $randNum = mt_rand(1, 15);
-    return $randNum;
-}
-
 function getHex()
 {
-    $randNum = mt_rand(1, 15);
-    return $randNum;
+    $strHex = "";
+    for ($i = 0; $i < 6; $i++)
+    {
+        $randNum = mt_rand(1,15);
+        switch($randNum)
+        {
+            case 1:
+                $strTemp = "1";
+                break;
+            case 2:
+                $strTemp = "2";
+                break;
+            case 3:
+                $strTemp = "3";
+                break;
+            case 4:
+                $strTemp = "4";
+                break;
+            case 5:
+                $strTemp = "5";
+                break;
+            case 6:
+                $strTemp = "6";
+                break;
+            case 7:
+                $strTemp = "7";
+                break;
+            case 8:
+                $strTemp = "8";
+                break;
+            case 9:
+                $strTemp = "9";
+                break;
+            case 10:
+                $strTemp = "A";
+                break;
+            case 11:
+                $strTemp = "B";
+                break;
+            case 12:
+                $strTemp = "C";
+                break;
+            case 13:
+                $strTemp = "D";
+                break;
+            case 14:
+                $strTemp = "E";
+                break;
+            case 15:
+                $strTemp = "F";
+                break;
+            default:
+                break;
+        }
+        $strHex .= $strTemp;
+    }
+    return $strHex;
 }
 
 $table = "<table>";
@@ -21,9 +70,8 @@ for ($rows = 1; $rows <= 10; $rows++)
 
     for($cols = 1; $cols <= 10; $cols++)
     {
-        $randNum = getRand();
-        $strHex = getHex($randNum);
-        $table .= "<td>" . $randNum . "</td>";
+        $strHex = getHex();
+        $table .= "<td style='background-color:#$strHex;'>$strHex<br /><span style='color:#ffffff;'>$strHex</span></td>";
     }
 
     $table .= "</tr>\n";
