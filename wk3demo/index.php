@@ -16,6 +16,10 @@ switch ($action){
     case "Add":
         addDog($db, $name, $gender, $fixed);
         break;
+    case "Edit":
+        break;
+    case "Delete":
+        break;
 }
 echo (getDogsAsTable($db));
 include_once ("assets/dogform.php");
