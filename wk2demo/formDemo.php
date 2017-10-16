@@ -64,3 +64,13 @@ if ($submit == "Submit"){
     <input type="submit" name="submit" value="Submit"/>
 
 </form>
+
+<?php
+$sql = $db->prepare("SELECT * FROM animals");
+$sql->execute();
+$results = $sql->fetchAll(PDO::FETCH_ASSOC);
+if (count($results)){
+    foreach ($results as $dog){
+        print_r($dog);
+    }
+}
