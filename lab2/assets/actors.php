@@ -13,11 +13,17 @@ function getActorsAsTable($db)
         $actors = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
             $table = "<table>" . PHP_EOL;
+            $table .= "<tr>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>DOB</th>
+                        <th>HEIGHT</th>
+                       </tr>";
             foreach ($actors as $actor) {
-                $table .= "<tr><td> |FIRST NAME : " . $actor['firstname'];
-                $table .= "</td><td> |LAST NAME : " . $actor['lastname'];
-                $table .= "</td><td> |DATE OF BIRTH : " . $actor['dob'];
-                $table .= "</td><td> |HEIGHT : " . $actor['height'];
+                $table .= "<tr><td>" . $actor['firstname'];
+                $table .= "</td><td>" . $actor['lastname'];
+                $table .= "</td><td>" . $actor['dob'];
+                $table .= "</td><td>" . $actor['height'];
 
                 $table .= "</td></tr>";
             }

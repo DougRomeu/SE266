@@ -12,7 +12,10 @@ $height = filter_input(INPUT_POST, 'height', FILTER_SANITIZE_STRING) ?? "";
 
 switch ($action){
     case "Add":
-        addActor($db, $firstname, $lastname, $dob, $height);
+        //if (strlen($firstname) >= 1 && strlen($lastname) >= 1 && strlen($dob) >= 1 && strlen($height) >= 1)
+        //{
+            addActor($db, $firstname, $lastname, $dob, $height);
+        //}
         break;
 }
 echo (getActorsAsTable($db));

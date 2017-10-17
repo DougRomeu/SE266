@@ -9,8 +9,8 @@
 <h1>Add Form</h1>
 </br>
 <form method="post" action="#">
-    First Name: <input type="text" name="firstName"/><br />
-    Last Name: <input type="text" name="lastName"/><br />
+    First Name: <input type="text" name="firstname"/><br />
+    Last Name: <input type="text" name="lastname"/><br />
     Date of Birth: <input type="text" name="dob"/><br />
     Height: <input type="text" name="height"/><br />
     <input type="submit" name="action" value="Add"/>
