@@ -33,7 +33,7 @@ function getActorsAsTable($db)
 
 function addActor($db, $firstname, $lastname, $dob, $height){
     try{
-        $sql = $db->prepare("INSERT INTO animals VALUES (null, :name, :gender, :fixed)");
+        $sql = $db->prepare("INSERT INTO actors VALUES (null, :firstname, :lastname, :dob, :height)");
         $sql->bindParam(':firstname', $firstname);
         $sql->bindParam(':lastname', $lastname);
         $sql->bindParam(':dob', $dob);
@@ -42,6 +42,6 @@ function addActor($db, $firstname, $lastname, $dob, $height){
         return $sql->rowCount();
     }
     catch (PDOException $e){
-        die("There was a problem giving birth to the puppy.");
+        die("There was a problem entering data.");
     }
 }

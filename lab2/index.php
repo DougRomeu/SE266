@@ -12,11 +12,7 @@ $height = filter_input(INPUT_POST, 'height', FILTER_SANITIZE_STRING) ?? "";
 
 switch ($action){
     case "Add":
-        addActor($db, $name, $gender, $fixed);
-        break;
-    case "Edit":
-        break;
-    case "Delete":
+        addActor($db, $firstname, $lastname, $dob, $height);
         break;
 }
 echo (getActorsAsTable($db));

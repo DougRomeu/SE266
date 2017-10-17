@@ -6,6 +6,8 @@
  * Time: 3:10 PM
  */
 ?>
+<h1>Add Form</h1>
+</br>
 <form method="post" action="#">
     First Name: <input type="text" name="firstName"/><br />
     Last Name: <input type="text" name="lastName"/><br />
