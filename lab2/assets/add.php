@@ -7,6 +7,6 @@
  */
 
 include_once ("D:/xampp/htdocs/lab2/assets/header.php");
-
+include_once ("assets/addForm.php");
 
 include_once ("assets/footer.php");
