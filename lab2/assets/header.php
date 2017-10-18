@@ -23,7 +23,11 @@
 <body>
 <header>
     <nav>
-
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="assets/add.php">Add</a></li>
+            <li><a href="assets/view.php">View</a></li>
+        </ul>
     </nav>
 </header>
 <section>
