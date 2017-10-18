@@ -20,6 +20,5 @@ switch ($action){
 }
 echo (getActorsAsTable($db));
 
-
 include_once ("assets/addForm.php");
 include_once ("assets/footer.php");

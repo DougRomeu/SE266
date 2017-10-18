@@ -13,21 +13,19 @@
     <title>Lab 2 Actors</title>
     <!-- css goes here -->
     <style>
-        table {border: 1px solid black;}
+        table {border:1px solid black;}
         td {border:1px solid black;}
         tr {border:1px solid black;}
-        th {border: 1px solid black;}
+        th {border:1px solid black;}
     </style>
     <!-- javaScript goes here -->
 </head>
 <body>
 <header>
     <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="assets/add.php">Add</a></li>
-            <li><a href="assets/view.php">View</a></li>
-        </ul>
+        <a href="index.php">Home</a>
+        <a href="assets/add.php">Add</a>
+        <a href="assets/view.php">View</a>
     </nav>
 </header>
 <section>
