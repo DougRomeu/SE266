@@ -24,8 +24,8 @@
 <header>
     <nav>
         <a href="index.php">Home</a>
-        <a href="assets/add.php">Add</a>
-        <a href="assets/view.php">View</a>
+        <a href="add.php">Add</a>
+        <a href="view.php">View</a>
     </nav>
 </header>
 <section>
