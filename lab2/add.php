@@ -9,7 +9,7 @@
 require_once ("assets/dbconn.php");
 
 include_once ("assets/header.php");
-
+include_once ("assets/actors.php");
 $db = dbconn();
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? "";
 $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING) ?? "";
