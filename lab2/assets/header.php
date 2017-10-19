@@ -18,19 +18,20 @@
         tr {border:1px solid black;}
         th {border:1px solid black;}
         h1 {color: darkred; margin:auto;}
-        footer {margin-top: 100px;}
-        nav {margin-bottom: 30px; border: 1px solid darkred; text-align: center;}
+        nav {background-color: darkred; color: white; border: 1px solid darkred; text-align: center; width: 80%; position: relative; margin: auto;}
+        a {color: white;}
         body {text-align: center;}
-
+        #wrapper {border: 3px solid darkred; height: auto; width: 80%; position: relative; margin: auto; padding-top: 100px; padding-bottom: 100px;}
     </style>
     <!-- javaScript goes here -->
 </head>
 <body>
-<header>
+    <header>
     <nav>
         <a href="index.php">Home</a>
         <a href="add.php">Add</a>
         <a href="view.php">View</a>
     </nav>
-</header>
+    </header>
+    <div id="wrapper">
 <section>

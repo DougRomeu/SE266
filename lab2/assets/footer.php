@@ -8,6 +8,7 @@
  */
 ?>
 </section>
+</div>
 <footer>
     Copyright &copy; <?php echo date("Y"); ?> Douglas Rose. All Rights Reserved.
 </footer>
