@@ -1,8 +1,9 @@
+<h1>Actors</h1>
 <?php
 
 include_once ("assets/header.php");
 ?>
-<h1>Actors</h1>
+
 </br>
 <p>
     Use the Add link in the nav bar to add actors to the database.

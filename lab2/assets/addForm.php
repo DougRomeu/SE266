@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Created by PhpStorm.
@@ -6,7 +7,7 @@
  * Time: 3:10 PM
  */
 ?>
-<h1>Add Form</h1>
+
 </br>
 <form method="post" action="#">
     First Name: </br><input type="text" name="firstname" id="firstname"/><br />
