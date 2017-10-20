@@ -14,14 +14,15 @@
     <!-- css goes here -->
     <style>
         table {border:1px solid black; text-align: center; position: relative; margin: auto;}
-        td {border:1px solid black;}
-        tr {border:1px solid black;}
-        th {border:1px solid black;}
+        td {border:1px solid black; color: darkred;}
+
+        th {border:1px solid black; color: red;}
         h1 {color: darkred; margin:auto;}
-        nav {background-color: darkred; color: white; border: 1px solid darkred; text-align: center; width: 80%; position: relative; margin: auto;}
+        nav {background-color: red; color: white; border: 3px solid darkred; text-align: center; width: 50%; position: relative; margin: auto; padding: 7px 0;}
         a {color: white;}
+        a:hover {color: darkred;}
         body {text-align: center;}
-        #wrapper {border: 3px solid darkred; height: auto; width: 80%; position: relative; margin: auto; padding-top: 100px; padding-bottom: 100px;}
+        #wrapper {border: 3px solid darkred; height: 400px; width: 50%; position: relative; margin: auto; padding-top: 100px; padding-bottom: 100px;}
     </style>
     <!-- javaScript goes here -->
 </head>
