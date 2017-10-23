@@ -17,6 +17,7 @@
         td {border:1px solid black; color: darkred;}
         th {border:1px solid black; color: red;}
         h1 {color: darkred; margin:auto;}
+        h3 {color: darkred; margin:auto;}
         a {color: red;}
         a:hover {color: darkred;}
         body {text-align: center;}

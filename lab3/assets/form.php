@@ -1,12 +1,10 @@
+<h1>Add New Data</h1>
 <?php
-/**
- * Created by PhpStorm.
- * User: Doug
- * Date: 10/23/2017
- * Time: 12:36 PM
- */
+include_once ("header.php");
 ?>
 
+<br />
+<h3>Add a new corp to the database, click the Home link in order to return to view the database</h3>
 <br />
 <form method="post" action="#">
     Corp: </br><input type="text" name="corp" id="corp"/><br />
@@ -17,4 +15,10 @@
     Phone: </br><input type="text" name="phone" id="phone"/><br />
     <br />
     <input type="submit" name="action" value="Add"/>
+    <br />
+    <br />
+    <a href="index.php">Home</a>
 </form>
+<?php
+include_once ("footer.php");
+?>

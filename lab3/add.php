@@ -8,7 +8,7 @@
 
 require_once ("assets/dbconn.php");
 
-include_once ("assets/header.php");
+
 include_once ("assets/corps.php");
 $db = dbconn();
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? "";
@@ -26,4 +26,3 @@ switch ($action){
 
 include_once ("assets/form.php");
 
-include_once ("assets/footer.php");

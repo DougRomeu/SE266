@@ -1,6 +1,5 @@
 <h1>Lab 3 - Corps.</h1>
 <?php
-
 include_once ("assets/header.php");
 ?>
 
