@@ -11,7 +11,7 @@ require_once ("assets/dbconn.php");
 include_once ("assets/header.php");
 include_once ("assets/corps.php");
 $db = dbconn();
-$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) ?? "";
+$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? "";
 $corp = filter_input(INPUT_POST, 'corp', FILTER_SANITIZE_STRING) ?? "";
 $incorp_dt = filter_input(INPUT_POST, 'incorp_dt', FILTER_SANITIZE_STRING) ?? "";
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING) ?? "";

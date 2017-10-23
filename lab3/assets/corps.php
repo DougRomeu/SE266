@@ -16,9 +16,9 @@ function getCorpsAsTable($db)
             $table .= "<tr><th>Company Name</th>";
             foreach ($corps as $corp) {
                 $table .= "<tr><td>" . $corp['corp'];
-                $table .= "</td><td><a href='read.php' id='$corp[id]'>Read</a>";
-                $table .= "</td><td><a href='update.php' id='$corp[id]'>Update</a>";
-                $table .= "</td><td><a href='delete.php' id='$corp[id]'>Delete</a>";
+                $table .= "</td><td><a href='read.php' id='$corp[id]' name='actlink' value='read'>Read</a>";
+                $table .= "</td><td><a href='update.php' id='$corp[id]' name='actlink' value='update'>Update</a>";
+                $table .= "</td><td><a href='delete.php' id='$corp[id]' name='actlink' value='delete'>Delete</a>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
@@ -28,5 +28,23 @@ function getCorpsAsTable($db)
         return $table;
     } catch (PDOException $e) {
         die("there was a problem retrieving corps");
+    }
+}
+
+
+function addCorp($db, $corp, $incorp_dt, $zipcode, $email, $owner, $phone){
+    try{
+        $sql = $db->prepare("INSERT INTO corps VALUES (null, :corp, :incorp_dt, :zipcode, :email, :owner, :phone)");
+        $sql->bindParam(':corp', $corp);
+        $sql->bindParam(':incorp_dt', $incorp_dt);
+        $sql->bindParam(':zipcode', $zipcode);
+        $sql->bindParam(':email', $email);
+        $sql->bindParam(':owner', $owner);
+        $sql->bindParam(':phone', $phone);
+        $sql->execute();
+        return $sql->rowCount();
+    }
+    catch (PDOException $e){
+        die("There was a problem entering data.");
     }
 }

@@ -16,5 +16,5 @@
     Owner: </br><input type="text" name="owner" id="owner"/><br />
     Phone: </br><input type="text" name="phone" id="phone"/><br />
     <br />
-    <input type="submit" name="btnaction" value="Add"/>
+    <input type="submit" name="action" value="Add"/>
 </form>
