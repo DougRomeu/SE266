@@ -16,9 +16,9 @@ function getCorpsAsTable($db)
             $table .= "<tr><th>Company Name</th>";
             foreach ($corps as $corp) {
                 $table .= "<tr><td>" . $corp['corp'];
-                $table .= "</td><td><a href='read.php?id=$corp[id]' name='action'>Read</a>";
-                $table .= "</td><td><a href='update.php?id=$corp[id]' name='action'>Update</a>";
-                $table .= "</td><td><a href='delete.php?id=$corp[id]' name='action'>Delete</a>";
+                $table .= "</td><td><a href='read.php?id=" . $corp['id'] . "'>Read</a>";
+                $table .= "</td><td><a href='update.php?id=" . $corp['id'] . "'>Update</a>";
+                $table .= "</td><td><a href='delete.php?id=" . $corp['id'] . "'>Delete</a>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
@@ -50,16 +50,23 @@ function addCorp($db, $corp, $incorp_dt, $zipcode, $email, $owner, $phone){
 
 function readCorp($db){
     try{
-        $id = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
-        $sql = $db->prepare("SELECT * FROM corps WHERE id=:$id");
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
+            filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
+        $sql = $db->prepare("SELECT * FROM corps WHERE id=$id");
         $sql->execute();
         $corps = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
             $table = "<table>" . PHP_EOL;
-            $table .= "<tr><th>Company Name</th>";
-            $table .= "<tr><td>" . $corps['corp'];
-
-            $table .= "</td></tr>";
+            $table .= "<tr><th>Company Name</th><th>incorp_dt</th><th>Email</th><th>Zip Code</th><th>Owner</th><th>Phone</th>";
+            foreach ($corps as $corp) {
+                $table .= "<tr><td>" . $corp['corp'];
+                $table .= "<td>" . $corp['incorp_dt'];
+                $table .= "</td><td>" . $corp['email'];
+                $table .= "</td><td>" . $corp['zipcode'];
+                $table .= "</td><td>" . $corp['owner'];
+                $table .= "</td><td>" . $corp['phone'];
+                $table .= "</td></tr>";
+            }
             $table .= "</table>" . PHP_EOL;
         }
         else{
