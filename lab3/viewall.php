@@ -12,3 +12,7 @@ $db = dbconn();
 
 echo (getCorpsAsTable($db));
 
+?>
+<br />
+<br />
+<a href="add.php">Create</a>

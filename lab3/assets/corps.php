@@ -16,6 +16,9 @@ function getCorpsAsTable($db)
             $table .= "<tr><th>Company Name</th>";
             foreach ($corps as $corp) {
                 $table .= "<tr><td>" . $corp['corp'];
+                $table .= "</td><td><a href='read.php'>Read</a>";
+                $table .= "</td><td><a href='update.php'>Update</a>";
+                $table .= "</td><td><a href='delete.php'>Delete</a>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
