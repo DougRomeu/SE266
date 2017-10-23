@@ -15,4 +15,4 @@ echo (getCorpsAsTable($db));
 ?>
 <br />
 <br />
-<a href="add.php">Create</a>
+<a href="add.php" name="action" id="Create">Create</a>
