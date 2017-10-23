@@ -1,7 +1,12 @@
+<h1>Lab 3 - Corps.</h1>
 <?php
-/**
- * Created by PhpStorm.
- * User: Doug
- * Date: 10/23/2017
- * Time: 12:22 PM
- */
+include_once ("assets/header.php");
+
+
+require_once ("assets/dbconn.php");
+require_once ("assets/corps.php");
+$db = dbconn();
+
+echo (readCorp($db));
+include_once ("assets/footer.php");
+?>

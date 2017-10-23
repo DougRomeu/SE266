@@ -16,9 +16,9 @@ function getCorpsAsTable($db)
             $table .= "<tr><th>Company Name</th>";
             foreach ($corps as $corp) {
                 $table .= "<tr><td>" . $corp['corp'];
-                $table .= "</td><td><a href='read.php' id='$corp[id]' name='actlink' value='read'>Read</a>";
-                $table .= "</td><td><a href='update.php' id='$corp[id]' name='actlink' value='update'>Update</a>";
-                $table .= "</td><td><a href='delete.php' id='$corp[id]' name='actlink' value='delete'>Delete</a>";
+                $table .= "</td><td><a href='read.php?id=$corp[id]' name='action'>Read</a>";
+                $table .= "</td><td><a href='update.php?id=$corp[id]' name='action'>Update</a>";
+                $table .= "</td><td><a href='delete.php?id=$corp[id]' name='action'>Delete</a>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
@@ -30,7 +30,6 @@ function getCorpsAsTable($db)
         die("there was a problem retrieving corps");
     }
 }
-
 
 function addCorp($db, $corp, $incorp_dt, $zipcode, $email, $owner, $phone){
     try{
@@ -46,5 +45,28 @@ function addCorp($db, $corp, $incorp_dt, $zipcode, $email, $owner, $phone){
     }
     catch (PDOException $e){
         die("There was a problem entering data.");
+    }
+}
+
+function readCorp($db){
+    try{
+        $id = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+        $sql = $db->prepare("SELECT * FROM corps WHERE id=:$id");
+        $sql->execute();
+        $corps = $sql->fetchAll(PDO::FETCH_ASSOC);
+        if ($sql->rowCount() > 0) {
+            $table = "<table>" . PHP_EOL;
+            $table .= "<tr><th>Company Name</th>";
+            $table .= "<tr><td>" . $corps['corp'];
+
+            $table .= "</td></tr>";
+            $table .= "</table>" . PHP_EOL;
+        }
+        else{
+            $table = "Nothing to report.";
+        }
+        return $table;
+    } catch (PDOException $e){
+        die("There was a problem reading data.");
     }
 }
