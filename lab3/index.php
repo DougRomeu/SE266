@@ -2,7 +2,6 @@
 <?php
 
 include_once ("assets/header.php");
-include_once ("viewall.php");
 ?>
 
 </br>
@@ -10,5 +9,6 @@ include_once ("viewall.php");
     Use this page to view, update, and delete data from the corps database.
 </p>
 <?php
+include_once ("viewall.php");
 include_once ("assets/footer.php");
 ?>

@@ -7,7 +7,7 @@
  */
 
 require_once ("assets/dbconn.php");
-
+require_once ("assets/corps.php");
 $db = dbconn();
 
 echo (getCorpsAsTable($db));

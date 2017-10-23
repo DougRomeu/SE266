@@ -19,7 +19,7 @@
         h1 {color: darkred; margin:auto;}
         a:hover {color: darkred;}
         body {text-align: center;}
-        #wrapper {border: 3px solid darkred; height: 400px; width: 50%; position: relative; margin: auto; padding-top: 30px; padding-bottom: 100px;}
+        #wrapper {border: 3px solid darkred; height: auto; width: 50%; position: relative; margin: auto; padding-bottom: 100px;}
     </style>
     <!-- javaScript goes here -->
 </head>
