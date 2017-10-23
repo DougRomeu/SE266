@@ -8,11 +8,12 @@
  */
 ?>
 
-</br>
+<br />
 <form method="post" action="#">
     First Name: </br><input type="text" name="firstname" id="firstname"/><br />
     Last Name: </br><input type="text" name="lastname" id="lastname"/><br />
     Date of Birth: </br><input type="text" name="dob" id="dob"/><br />
     Height: </br><input type="text" name="height" id="height"/><br />
+    <br />
     <input type="submit" name="action" value="Add"/>
 </form>
