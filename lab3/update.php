@@ -5,10 +5,13 @@ require_once ("assets/dbconn.php");
 require_once ("assets/corps.php");
 $db = dbconn();
 
-echo updateCorp($db);
+
+echo updateForm($db);
 
 ?>
+<input type="submit" name="action" value="Update"/>
 <a href="index.php">Home</a>
+
 <?php
 include_once ("assets/footer.php");
 ?>

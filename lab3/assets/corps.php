@@ -78,7 +78,7 @@ function readCorp($db){
     }
 }
 
-function updateCorp($db){
+function updateForm($db){
     try {
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
             filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
@@ -100,6 +100,25 @@ function updateCorp($db){
         return $form;
     } catch(PDOException $e){
         die("There was a problem grabing the data");
+    }
+}
+
+function updateCorp($db, $corp, $zipcode, $email, $owner, $phone){
+    try{
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
+            filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
+        $sql = $db->prepare("INSERT INTO corps WHERE id=$id VALUES (null, :corp, null, :zipcode, :email, :owner, :phone)");
+        $sql->bindParam(':corp', $corp);
+        //$sql->bindParam(':incorp_dt', $incorp_dt);
+        $sql->bindParam(':zipcode', $zipcode);
+        $sql->bindParam(':email', $email);
+        $sql->bindParam(':owner', $owner);
+        $sql->bindParam(':phone', $phone);
+        $sql->execute();
+        return $sql->rowCount();
+    }
+    catch (PDOException $e){
+        die("There was a problem entering data.");
     }
 }
 
