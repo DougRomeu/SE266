@@ -8,7 +8,6 @@ include_once ("header.php");
 <br />
 <form method="post" action="#">
     Corp: </br><input type="text" name="corp" id="corp"/><br />
-    incorp_dt: </br><input type="text" name="incorp_dt" id="incorp_dt"/><br />
     Email: </br><input type="text" name="email" id="email"/><br />
     Zip Code: </br><input type="text" name="zipcode" id="zipcode"/><br />
     Owner: </br><input type="text" name="owner" id="owner"/><br />
