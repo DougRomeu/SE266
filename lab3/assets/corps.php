@@ -41,6 +41,7 @@ function addCorp($db, $corp, $zipcode, $email, $owner, $phone){
         $sql->bindParam(':owner', $owner);
         $sql->bindParam(':phone', $phone);
         $sql->execute();
+        echo ("<h2>Successfully Added Corp.</h2>");
         return $sql->rowCount();
     }
     catch (PDOException $e){
@@ -69,8 +70,8 @@ function readCorp($db){
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
-            $table .= "<a href=\"index.php\">Home</a>";
-            $table .= "</td><td><a href='update.php?id=" . $corp['id'] . "'>Update</a>";
+            $table .= "<a href=\"index.php\">Home</a>|";
+            $table .= "<a href='update.php?id=" . $corp['id'] . "'>Update</a>|";
             $table .= "<a href='delete.php?id=" . $corp['id'] . "'>Delete</a>";
 
         }
@@ -99,7 +100,7 @@ function updateForm($db, $id){
                 $form .= "Owner:</br><input type='text' name='owner' id='corp' value='" . $corp['owner'] . "'/><br />";
                 $form .= "Phone:</br><input type='text' name='phone' id='corp' value='" . $corp['phone'] . "'/><br />";
                 $form .= "<input type='submit' name='action' value='Update'/>";
-                $form .= "<br /><a href=\"index.php\">Home</a>";
+                $form .= "<br /><a href=\"index.php\">Home</a>|";
                 $form .= "<a href='delete.php?id=" . $corp['id'] . "'>Delete</a>";
             }
         } else {
