@@ -52,8 +52,7 @@ function readCorp($db){
     try{
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
             filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
-        $sql = $db->prepare("SELECT * FROM corps WHERE id=:id");
-        $sql->bindParam(':id', $id, PDO::PARAM_INT);
+        $sql = $db->prepare("SELECT * FROM corps WHERE id=$id");
         $sql->execute();
         $corps = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
@@ -69,14 +68,9 @@ function readCorp($db){
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
-            $table .= "<a href=\"index.php\">Home</a>";
-            $table .= "</td><td><a href='update.php?id=" . $corp['id'] . "'>Update</a>";
-            $table .= "<a href='delete.php?id=" . $corp['id'] . "'>Delete</a>";
-
         }
         else{
             $table = "Nothing to report.";
-            $table .= "<br /><a href=\"index.php\">Home</a>";
         }
         return $table;
     } catch (PDOException $e){
@@ -84,39 +78,36 @@ function readCorp($db){
     }
 }
 
-function updateForm($db, $id){
+function updateForm($db){
     try {
-        $sql = $db->prepare("SELECT * FROM corps WHERE id=:id");
-        $sql->bindParam(':id', $id, PDO::PARAM_INT);
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
+            filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
+        $sql = $db->prepare("SELECT * FROM corps WHERE id=$id");
         $sql->execute();
         $corps = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
-            $form = "<form method='post' action='#'>" . PHP_EOL;
+            $form = "<form>" . PHP_EOL;
             foreach ($corps as $corp) {
                 $form .= "Corp:</br><input type='text' name='corp' id='corp' value='" . $corp['corp'] . "'/><br />";
-                $form .= "Email:</br><input type='text' name='email' id='corp' value='" . $corp['email'] . "'/><br />";
-                $form .= "Zip:</br><input type='text' name='zipcode' id='corp' value='" . $corp['zipcode'] . "'/><br />";
-                $form .= "Owner:</br><input type='text' name='owner' id='corp' value='" . $corp['owner'] . "'/><br />";
-                $form .= "Phone:</br><input type='text' name='phone' id='corp' value='" . $corp['phone'] . "'/><br />";
-                $form .= "<input type='submit' name='action' value='Update'/>";
-                $form .= "<br /><a href=\"index.php\">Home</a>";
-                $form .= "<a href='delete.php?id=" . $corp['id'] . "'>Delete</a>";
+                $form .= "Email:</br><input type='text' name='corp' id='corp' value='" . $corp['email'] . "'/><br />";
+                $form .= "Zip:</br><input type='text' name='corp' id='corp' value='" . $corp['zipcode'] . "'/><br />";
+                $form .= "Owner:</br><input type='text' name='corp' id='corp' value='" . $corp['owner'] . "'/><br />";
+                $form .= "Phone:</br><input type='text' name='corp' id='corp' value='" . $corp['phone'] . "'/><br />";
             }
         } else {
-            echo ($id);
             $form = "nothing to see here";
-            $form .= "<br /><a href=\"index.php\">Home</a>";
         }
         return $form;
-    }catch(PDOException $e){
-        die("There was a problem grabbing the data");
+    } catch(PDOException $e){
+        die("There was a problem grabing the data");
     }
 }
 
-function updateCorp($db, $corp, $zipcode, $email, $owner, $phone, $id){
+function updateCorp($db, $corp, $zipcode, $email, $owner, $phone){
     try{
-        $sql = $db->prepare("UPDATE corps SET corp= :corp,zipcode= :zipcode,email= :email,owner= :owner,phone= :phone WHERE id=:id");
-        $sql->bindParam(':id', $id, PDO::PARAM_INT);
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
+            filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
+        $sql = $db->prepare("INSERT INTO corps WHERE id=$id VALUES (null, :corp, null, :zipcode, :email, :owner, :phone)");
         $sql->bindParam(':corp', $corp);
         //$sql->bindParam(':incorp_dt', $incorp_dt);
         $sql->bindParam(':zipcode', $zipcode);
@@ -124,24 +115,13 @@ function updateCorp($db, $corp, $zipcode, $email, $owner, $phone, $id){
         $sql->bindParam(':owner', $owner);
         $sql->bindParam(':phone', $phone);
         $sql->execute();
-        $p = "<br /><p>Update Success</p>";
+        return $sql->rowCount();
     }
     catch (PDOException $e){
         die("There was a problem entering data.");
     }
-    return $p;
 }
 
 function deleteCorp($db){
-    try{
-        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
-            filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
-        $sql = $db->prepare("DELETE FROM corps WHERE id=:id");
-        $sql->bindParam(':id', $id, PDO::PARAM_INT);
-        $sql->execute();
-        $p = "<br /><p>Delete Success</p>";
-    } catch (PDOException $e){
-        die("There was a problem deleting data.");
-    }
-    return $p;
+
 }

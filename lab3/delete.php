@@ -1,7 +1,12 @@
+<h1>Delete</h1>
 <?php
-/**
- * Created by PhpStorm.
- * User: Doug
- * Date: 10/23/2017
- * Time: 12:23 PM
- */
+include_once ("assets/header.php");
+require_once ("assets/dbconn.php");
+require_once ("assets/corps.php");
+$db = dbconn();
+echo deleteCorp($db);
+?>
+<a href="index.php">Home</a>
+<?php
+include_once ("assets/footer.php");
+?>

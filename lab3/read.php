@@ -8,7 +8,6 @@ $db = dbconn();
 
 echo readCorp($db);
 ?>
-<a href="index.php">Home</a>
 <?php
 include_once ("assets/footer.php");
 ?>
