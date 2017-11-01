@@ -21,7 +21,7 @@ function dbconn(){
 }
 
 function getColumnNames($db, $tbl){
-
+$column_names = "";
     $sql = "select column_name from information_schema.columns where lower(table_name)=lower('". $tbl . "')";
     $stmt = $db->prepare($sql);
 

@@ -22,6 +22,8 @@
         a:hover {color: darkred;}
         body {text-align: center;}
         #wrapper {border: 3px solid darkred; height: auto; width: 50%; position: relative; margin: auto; padding-bottom: 100px;}
+        form {padding-top: 25px; text-align: center}
+        nav {background-color: white; border: 3px solid darkred; text-align: center; width: 50%; position: relative; margin: auto; padding: 7px 0;}
     </style>
     <!-- javaScript goes here -->
 </head>

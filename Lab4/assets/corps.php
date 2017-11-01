@@ -85,3 +85,15 @@ function deleteCorp($db){
     }
     return $p;
 }
+
+function getCorpsAsSortedTable($db, $col, $dir) {
+    try {
+        $sql = "SELECT *  FROM corps ORDER BY $col $dir";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die ("There was a problem getting the table of sorted corps");
+    }
+    return $employees;
+}

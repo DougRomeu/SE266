@@ -9,10 +9,10 @@
 require_once ("assets/dbconn.php");
 require_once ("assets/corpsView.php");
 $db = dbconn();
-
 echo (getCorpsAsTable($db));
 
 ?>
 <br />
 <br />
 <a href="add.php" name="action" id="Create">Create</a>
+
