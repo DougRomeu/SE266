@@ -82,7 +82,7 @@ function readCorp($db){
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
-            $table .= "<a href=\"index.php\">Home</a>|";
+            $table .= "<a href='index.php'>Home</a>|";
             $table .= "<a href='update.php?id=" . $corp['id'] . "'>Update</a>|";
             $table .= "<a href='delete.php?id=" . $corp['id'] . "'>Delete</a>";
 
@@ -120,7 +120,7 @@ function getSearchResults($db, $col, $terms)
 
         } else {
             $table = "Nothing to report.";
-            $table .= "<br /><a href=\"index.php\">Home</a>";
+            $table .= "<br /><a href='index.php'>Home</a>";
         }
         return $table;
     } catch (PDOException $e) {

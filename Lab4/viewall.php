@@ -8,6 +8,8 @@
 
 require_once ("assets/dbconn.php");
 require_once ("assets/corpsView.php");
+include_once ("searchHome.php");
+include_once ("sortHome.php");
 $db = dbconn();
 echo (getCorpsAsTable($db));
 

@@ -1,4 +1,4 @@
-<h1>Sort</h1>
+<h1>Search</h1>
 <?php
 /**
  * Created by PhpStorm.
@@ -6,12 +6,12 @@
  * Date: 10/23/2017
  * Time: 12:22 PM
  */
-include_once ("assets/header.php");
+//include_once ("assets/header.php");
 require_once ("assets/dbconn.php");
 include_once ("assets/corps.php");
 require_once ("assets/control.php");
 $db = dbconn();
-require_once ("assets/control.php");
+//require_once ("assets/control.php");
 ?>
 <form method="get" action="#">
     <select name='col'> <?php PHP_EOL ?>
@@ -21,14 +21,12 @@ require_once ("assets/control.php");
         <option value="owner">Owner</option>
         <!--<option value="phone">Phone</option>-->
     </select> <?php PHP_EOL ?>
+    <input type="text" name="terms" placeholder="enter search terms">
     <br />
-    <input type="radio" name="dir" value="ASC"> Ascending<br>
-    <input type="radio" name="dir" value="DESC"> Descending<br>
-<br />
-    <input type="submit" name="action" value="Sort">
-    <input type="submit" name="action" value="Reset">
-
+    <br />
+    <input type="submit" name="action" value="Search">
+    <input type="submit" name="action" value="Reset" onclick="reset()";>
 </form>
 <?php
-include_once ("assets/footer.php");
+//include_once ("assets/footer.php");
 ?>
