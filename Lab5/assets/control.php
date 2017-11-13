@@ -8,7 +8,6 @@
 
 require_once ("dbconn.php");
 
-
 $db = dbconn();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
@@ -20,12 +19,12 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) ??
 $site = filter_input(INPUT_POST, 'site', FILTER_VALIDATE_URL) ?? NULL;
 switch ($action){
     case "Add":
-        $valid = validateSite();
-        if(!$vaild){
-            returnSite();
+        $valid = validateSite($db, $site);
+        if(!$valid){
+            echo ("BAD");
         }
         else{
-            addSite();
+            echo ("GOOD");
         }
         break;
     case "Reset":
