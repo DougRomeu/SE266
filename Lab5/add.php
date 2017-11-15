@@ -6,8 +6,7 @@
  * Date: 11/8/2017
  * Time: 1:43 PM
  */
-require_once ('assets/dbconn.php');
-
+include ('assets/control.php');
 
 include_once ('assets/header.php');
 ?>

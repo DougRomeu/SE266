@@ -19,9 +19,17 @@ function validateSite($db, $site){
 }
 
 function returnSite(){
-echo ("bad");
+
 }
 
-function addSite(){
-echo ("good");
+function addSite($db, $site){
+    try{
+        $sql = $db->prepare("INSERT INTO sites VALUES (null, :site, NOW())");
+        $sql->bindParam(':site', $site);
+        $sql->execute();
+
+    }
+    catch (PDOException $e){
+        die("There was a problem entering data.");
+    }
 }
