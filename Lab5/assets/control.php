@@ -14,6 +14,7 @@ $db = dbconn();
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? NULL;
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? NULL;
 $site = filter_input(INPUT_POST, 'site', FILTER_VALIDATE_URL) ?? filter_input(INPUT_POST, 'site', FILTER_VALIDATE_URL) ?? NULL;
+$vSite = "";
 
 $valid = false;
 
@@ -31,7 +32,8 @@ switch ($action){
         break;
     case "Reset":
         break;
-    case "View":
+    case "Search":
+        viewSiteLinks($db, $vSite);
         break;
 
 }

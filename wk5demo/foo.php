@@ -19,15 +19,15 @@ $file = file_get_contents("https://www.cnn.com");
 echo preg_match_all('/Trump/', $file, $matches, PREG_OFFSET_CAPTURE);
 print_r($matches);
 //$greps = preg_grep('/Trump/', $file); --> split string into an array
-/*
-grabbing a primary key for a foreign key reference
+
+//grabbing a primary key for a foreign key reference
 $db = getMyDatabase();
 $sql = "INSERT INTO foo VALUES (null, 'Clark', 'Alexander')";
 $stmt = $db->prepare($sql);
-bind params as necessary
+//bind params as necessary
 $stmt->execute();
 $pk = $db->lastInsertedId(); // will get the last primary key inserted
- */
+
 
 $pw = "foo";
 $hash = password_hash($pw, PASSWORD_DEFAULT);
