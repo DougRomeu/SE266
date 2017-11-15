@@ -18,16 +18,13 @@ function validateSite($db, $site){
     return $valid;
 }
 
-function returnSite(){
-
-}
-
 function addSite($db, $site){
     try{
         $sql = $db->prepare("INSERT INTO sites VALUES (null, :site, NOW())");
-        $sql->bindParam(':site', $site);
+        $sql->bindParam(':site', $site, PDO::PARAM_STR);
         $sql->execute();
-
+        echo (" Added");
+        return $sql->rowCount();
     }
     catch (PDOException $e){
         die("There was a problem entering data.");

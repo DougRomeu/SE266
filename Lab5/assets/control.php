@@ -9,7 +9,7 @@
 require_once ("dbconn.php");
 include_once ("sites.php");
 
-$db = getDB();
+$db = dbconn();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? NULL;
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? NULL;
@@ -26,7 +26,7 @@ switch ($action){
             addSite($db, $site);
         }else{
             //is not valid
-            echo "Is Not Valid";
+            echo "Not Valid or already exists";
         }
         break;
     case "Reset":
