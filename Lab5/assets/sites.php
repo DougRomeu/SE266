@@ -58,12 +58,6 @@ function addLinks($db, $id, $match){
         die("There was a problem entering data. with the message $e");
     }
 }
-//
-//  INSERT INTO WHATEVER (site_id, link)
-//  VALUES
-//  (1,"something"),
-//  (1, "something else"),
-//  (1, "Something also else");
 function getSiteNames($db){
     try{
         $sql = $db->prepare("SELECT * FROM sites");
@@ -71,7 +65,7 @@ function getSiteNames($db){
         $sites = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
             $form = "<form method='get' action='#'>" . PHP_EOL;
-            $form .= "<select name='site' ><option value='default'>Select a Site</option>";
+            $form .= "<select name='site_id' ><option value='default'>Select a Site</option>";
             foreach ($sites as $site) {
                 $form .= "<option  value='".$site['site_id']."'>" . $site['site'] . "</option>";
             }
