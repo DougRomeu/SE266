@@ -7,6 +7,6 @@
  */
 
 
-function viewSiteLinks(){
+function viewSiteLinks($db, $site){
 
 }

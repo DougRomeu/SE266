@@ -23,16 +23,20 @@ function addSite($db, $site){
         $sql = $db->prepare("INSERT INTO sites VALUES (null, :site, NOW())");
         $sql->bindParam(':site', $site, PDO::PARAM_STR);
         $sql->execute();
-        $lastid = $db->lastInsertedId;
-        echo (" Added");
+
+        $lastid = $db->lastInsertId();
+        echo (" Added with the Id: $lastid");
 
         $file = file_get_contents("$site");
         preg_match_all('/(https?:\/\/[\da-z\.-]+\.[a-z\.]{2,6}[\/\w \.-]+)/', $file, $matches, PREG_OFFSET_CAPTURE);
         //$temp = implode("|", $matches);
-        foreach($matches as $match){
-            addLinks($db, $lastid, $match);
-        }
+        foreach($matches as $m){
+            //print_r($m);
+            foreach($m as $match){
+                addLinks($db, $lastid, $match[0]);
+            }
 
+        }
         return $sql->rowCount();
     }
     catch (PDOException $e){
@@ -42,7 +46,7 @@ function addSite($db, $site){
 
 function addLinks($db, $id, $match){
     try{
-        $sql = $db->prepare("INSERT INTO sitelinks VALUES (:id, :link");
+        $sql = $db->prepare("INSERT INTO sitelinks (site_id, link) VALUES (:id, :link)");
         $sql->bindParam(':id', $id, PDO::PARAM_INT);
         $sql->bindParam(':link', $match, PDO::PARAM_STR);
 
@@ -51,10 +55,15 @@ function addLinks($db, $id, $match){
         return $sql->rowCount();
     }
     catch (PDOException $e){
-        die("There was a problem entering data.");
+        die("There was a problem entering data. with the message $e");
     }
 }
-
+//
+//  INSERT INTO WHATEVER (site_id, link)
+//  VALUES
+//  (1,"something"),
+//  (1, "something else"),
+//  (1, "Something also else");
 function getSiteNames($db){
     try{
         $sql = $db->prepare("SELECT * FROM sites");
@@ -62,9 +71,9 @@ function getSiteNames($db){
         $sites = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
             $form = "<form method='get' action='#'>" . PHP_EOL;
-            $form .= "<select><option value='default'>Select a Site</option>";
+            $form .= "<select name='site' ><option value='default'>Select a Site</option>";
             foreach ($sites as $site) {
-                $form .= "<option value='test'>" . $site['site'] . "</option>";
+                $form .= "<option  value='".$site['site_id']."'>" . $site['site'] . "</option>";
             }
         $form .= "</select><input type='submit' name='action' value='Search'></form>";
         return $form;
