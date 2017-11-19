@@ -67,10 +67,10 @@
             color: #7d0000;
             border: 2px solid #7d0000;
             transition-duration: 0.4s;
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+            box-shadow: 0 10px 12px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);}
         #btnLogin:active {
             background-color: white;
-            box-shadow: 0 3px 4px 0 rgba(0,0,0,0.24), 0 4px 12px 0 rgba(0,0,0,0.19);;
+            box-shadow: 0 3px 4px 0 rgba(0,0,0,0.24), 0 4px 12px 0 rgba(0,0,0,0.19);
             transform: translateY(4px);}
         #btnLogin:focus {
             outline: none;
@@ -78,7 +78,7 @@
             color: #7d0000;
             border: 2px solid #7d0000;
             transition-duration: 0.4s;
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+            box-shadow: 0 3px 4px 0 rgba(0,0,0,0.24), 0 4px 12px 0 rgba(0,0,0,0.19);}
         #username {
             height: 25px;
             width: 190px;
