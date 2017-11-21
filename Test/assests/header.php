@@ -29,10 +29,10 @@
             border-radius: 14px;
             position: relative;}
         #loginHeader {
-            background-color: #7d0000;
+            background-image: url('../images/lock.jpg');
             text-align: center;
             padding: 2px 0;
-            color: white;
+            color: #7d0000;
             border-top-left-radius: 14px;
             border-top-right-radius: 14px;}
         #formBox {
@@ -70,6 +70,8 @@
             box-shadow: 0 10px 12px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);}
         #btnLogin:active {
             background-color: white;
+            color: #7d0000;
+            border: 2px solid #7d0000;
             box-shadow: 0 3px 4px 0 rgba(0,0,0,0.24), 0 4px 12px 0 rgba(0,0,0,0.19);
             transform: translateY(4px);}
         #btnLogin:focus {
@@ -132,7 +134,7 @@
     </div>
     <div id="loginBox">
         <div id="loginHeader">
-            <h1>Please Sign-In</h1>
+            <h1>.</h1>
         </div>
         <div id="formBox">
             <div id="usernameBox">
