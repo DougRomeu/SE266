@@ -8,18 +8,27 @@
         body {font-family: 'Monda', sans-serif;
             height: 100%;
             width: 100%;
-            position: relative;}
+            padding: 0;
+            margin:0;
+            position: absolute;}
+        *:focus{
+            outline:0;
+        }
         #wrapper {
             background-image: url('images/3.jpg');
             background-repeat: no-repeat;
-            background-size: 100%;
-            position: fixed;
-            height: 100%;
-            width: 100%;
+            background-size: cover;
+            background-position: center;
+            /*position: fixed;*/
+            /*height: 100%;*/
+            /*width: 100%;*/
+            position:absolute;
+            top:0;
+            left:0;
+            bottom: 0;
+            right:0;
         }
-        #blankSpace {
-            height: 110px;
-            width: 100%;}
+
         #loginBox {
             background-color: #fafafa;
             width: 320px;
@@ -27,7 +36,11 @@
             margin: auto;
             box-shadow: -5px 8px 5px rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);;
             border-radius: 14px;
-            position: relative;}
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
         #loginHeader {
             background-image: url('images/lock.jpg');
             text-align: center;
@@ -38,6 +51,10 @@
         #formBox {
             width: 200px;
             margin: auto;}
+        #emailBox {
+            margin: auto;
+            text-align: center;
+            color: #7d0000;}
         #passwordBox {
             margin: auto;
             text-align: center;
@@ -46,15 +63,11 @@
             margin: auto;
             text-align: center;
             color: #7d0000;}
-        #emailBox {
-            margin: auto;
-            text-align: center;
-            color: #7d0000;}
         #buttonBox {
             width:auto;
             text-align: center;
             margin-top: 20px;}
-        #btnSignUp {
+        #btnRegister {
             font-family: 'Monda', sans-serif;
             text-align: center;
             height: 50px;
@@ -66,19 +79,19 @@
             border-radius: 14px;
             border: 2px solid white;
             cursor: pointer;}
-        #btnSignUp:hover {
+        #btnRegister:hover {
             background-color: white;
             color: #7d0000;
             border: 2px solid #7d0000;
             transition-duration: 0.4s;
             box-shadow: 0 10px 12px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);}
-        #btnSignUp:active {
+        #btnRegister:active {
             background-color: white;
             color: #7d0000;
             border: 2px solid #7d0000;
             box-shadow: 0 3px 4px 0 rgba(0,0,0,0.24), 0 4px 12px 0 rgba(0,0,0,0.19);
             transform: translateY(4px);}
-        #btnSignUp:focus {
+        #btnRegister:focus {
             outline: none;
             transition-duration: 0.4s;}
         #password {
@@ -109,10 +122,10 @@
             margin-bottom: 0;}
         #cancelBox{
             width: 200px;
-            height: 50px;
+            height: 40px;
             color: #7d0000;
-            text-align: center;
-            margin-top: 15px;}
+            padding-top: 10px;
+            text-align: center;}
         #cancel {
             text-decoration: none;
             color:#7d0000;}
@@ -127,8 +140,6 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id="blankSpace">
-    </div>
     <div id="loginBox">
         <div id="loginHeader">
             <h1>.</h1>
@@ -148,15 +159,13 @@
         <input type="password" id="password2" name="password2" >
     </div>
     <div id="buttonBox">
-        <input type="submit" id="btnSignUp" name="SignUp" value="SignUp">
+        <input type="submit" id="btnRegister" name="register" value="Register">
     </div>
     <div id="cancelBox">
         <a href="login.php" id="cancel">Cancel</a>
     </div>
 </form>
         </div>
-    </div>
-    <div id="blankSpace">
     </div>
 </div>
 </body>

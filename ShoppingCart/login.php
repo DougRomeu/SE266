@@ -8,18 +8,27 @@
         body {font-family: 'Monda', sans-serif;
             height: 100%;
             width: 100%;
-            position: relative;}
+            padding: 0;
+            margin:0;
+            position: absolute;}
+        *:focus{
+            outline:0;
+        }
         #wrapper {
             background-image: url('images/3.jpg');
             background-repeat: no-repeat;
-            background-size: 100%;
-            position: fixed;
-            height: 100%;
-            width: 100%;
+            background-size: cover;
+            background-position: center;
+            /*position: fixed;*/
+            /*height: 100%;*/
+            /*width: 100%;*/
+            position:absolute;
+            top:0;
+            left:0;
+            bottom: 0;
+            right:0;
         }
-        #blankSpace {
-            height: 110px;
-            width: 100%;}
+
         #loginBox {
             background-color: #fafafa;
             width: 320px;
@@ -27,7 +36,11 @@
             margin: auto;
             box-shadow: -5px 8px 5px rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);;
             border-radius: 14px;
-            position: relative;}
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
         #loginHeader {
             background-image: url('images/lock.jpg');
             text-align: center;
@@ -130,8 +143,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id="blankSpace">
-    </div>
+
     <div id="loginBox">
         <div id="loginHeader">
             <h1>.</h1>
@@ -158,8 +170,7 @@
             </form>
         </div>
     </div>
-    <div id="blankSpace">
-    </div>
+
 </div>
 </body>
 </html>
