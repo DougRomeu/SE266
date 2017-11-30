@@ -6,7 +6,10 @@
  * Time: 5:42 PM
  */
 
-include_once('assets/header.php')
+include ('assets/control.php');
+
+include_once('assets/header.php');
+
 ?>
 
 <div id="loginBox">

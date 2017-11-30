@@ -6,7 +6,8 @@
  * Time: 5:26 PM
  */
 
-include_once('assets/header.php')
+include_once('assets/header.php');
+
 ?>
 
 <h1>Welcome to Doug's Online Shop</h1>
