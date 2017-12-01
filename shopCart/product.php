@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Doug
  * Date: 11/30/2017
- * Time: 12:42 PM
+ * Time: 5:50 PM
  */
 
 include_once('assets/control.php');
@@ -17,16 +17,19 @@ if (!$_SESSION['logged_in']){
 }
 ?>
 
-<form method="POST" action="#">
-    <input type="submit" name="action" value="Logout"/>
-</form>
 
-    <form action="category.php">
-        <input type="submit" id="btnAddCat" name="addCat" value="Edit Categories">
+    <h3>Add A New Product</h3>
+    <form method="post" action="#">
+        <input type="text" placeholder="Product Name" name="product">
+        <?php echo(getCategoryNames($db))?>
+        <input type="submit" name="action" value="Submit">
     </form>
-    <form action="product.php">
-        <input type="submit" id="btnAddPro" name="addPro" value="Edit Products">
-    </form>
+
+    <br />
+    <h3>Edit Existing Products</h3>
+
+
+
 
 <?php
 include_once('assets/footer.php')

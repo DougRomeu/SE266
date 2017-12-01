@@ -3,8 +3,9 @@
  * Created by PhpStorm.
  * User: Doug
  * Date: 11/30/2017
- * Time: 12:42 PM
+ * Time: 5:50 PM
  */
+
 
 include_once('assets/control.php');
 include_once('assets/header.php');
@@ -17,16 +18,17 @@ if (!$_SESSION['logged_in']){
 }
 ?>
 
-<form method="POST" action="#">
-    <input type="submit" name="action" value="Logout"/>
+<h3>Add A New Category</h3>
+<form method="post" action="#">
+    <input type="text" placeholder="Category Name" name="category">
+    <input type="submit" name="action" value="Submit">
 </form>
 
-    <form action="category.php">
-        <input type="submit" id="btnAddCat" name="addCat" value="Edit Categories">
-    </form>
-    <form action="product.php">
-        <input type="submit" id="btnAddPro" name="addPro" value="Edit Products">
-    </form>
+<br />
+<h3>Edit Existing Categories</h3>
+<?php echo viewCat($db);?>
+
+    <a href="admin.php">Back</a>
 
 <?php
 include_once('assets/footer.php')

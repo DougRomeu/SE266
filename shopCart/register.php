@@ -9,6 +9,10 @@
 include ('assets/control.php');
 
 include_once('assets/header.php');
+
+if($_SESSION["logged_in"]){
+    header("Location: admin.php");
+}
 ?>
 <div id="registerBox">
     <div id="registerHeader">

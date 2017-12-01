@@ -12,11 +12,19 @@ include_once('assets/header.php');
 
 <h1>Welcome to Doug's Online Shop</h1>
 <br />
-<br />
-<h3>Please log in or register to continue.</h3>
+<h3>Please log in or register to access Admin controls.</h3>
 
 <form action="login.php">
     <input type="submit" id="btnLogin" name="login" value="Login/Register">
+</form>
+<br />
+<br />
+<br />
+
+<h3>To begin shopping, click the button below.</h3>
+<br />
+<form action="shop.php">
+    <input type="submit" id="btnShop" name="shop" value="SHOP NOW">
 </form>
 
 <?php

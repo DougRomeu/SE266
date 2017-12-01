@@ -5,9 +5,11 @@
  * Date: 11/29/2017
  * Time: 6:17 PM
  */
-
+session_start();
+error_reporting(0);
 require_once ("dbconn.php");
 include_once ("users.php");
+include_once ("categories.php");
 
 $db = dbconn();
 
@@ -16,18 +18,26 @@ $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING) ?? "";
 $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING) ?? "";
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) ?? NULL;
 
+$category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING) ?? "";
+
+
 $valid = false;
 
 $hash = password_hash($password, PASSWORD_DEFAULT);
-//$hashed = password_verify($password, $hash);
+$hashed = password_verify($password, $hash);
 
 switch ($action){
     case "Login":
-        $hashed = password_verify($password, $hash);
-        $validUser = logUser($db, $email, $hashed);
-        if($validUser == true){
-            //$_SESSION['username'] == $email;
+        $login = loginUser($db, $email, $password);
+        if($login["success"]){
+            $_SESSION["logged_in"] = true;
+            $_SESSION["email"] = $login["data"]["email"];
+
+            print_r($_SESSION);
+        }else{
+            echo "Failed Login";
         }
+
         break;
     case "Register":
         $validEmail = validateEmail($db, $email);
@@ -47,4 +57,29 @@ switch ($action){
             //is not valid
             echo "Email Not Valid or Already Exists";
         }
+    case "Logout":
+        unset($_SESSION);
+        unset($_SESSION["logged_in"]);
+        session_destroy();
+        header("Location: login.php");
+        break;
+    case "Submit":
+        if($category != NULL){
+            addCat($db, $category);
+        }
+        else{
+            echo "Category cannot be left blank";
+        }
+        break;
+    case 'Select':
+
+        //display all info for selected category and allow user to add products/ update name/ and delete category
+        break;
+    case 'Delete':
+        //deletes product/ category
+        break;
+    case 'Update':
+        echo updateCat($db, $category);
+        header("Refresh:0");
+        break;
 }

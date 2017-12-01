@@ -77,20 +77,29 @@ function addUser($db, $email, $password){
     }
 }
 
-function logUser($db, $email, $password){
-    $sql = $db->prepare("SELECT * FROM users WHERE email=:email AND password=:password");
+function loginUser($db, $email, $password){
+    $sql = $db->prepare("SELECT * FROM users WHERE email=:email");
     $sql->bindParam(':email', $email, PDO::PARAM_STR);
-    $sql->bindParam(':password', $password, PDO::PARAM_STR);
     $sql->execute();
     if ($sql->rowCount() > 0) {
-        $valid = true;
-        echo('VALID');
+        $results = $sql->fetch(PDO::FETCH_ASSOC);
+        if(password_verify($password, $results["password"])){
+            return array(
+                "success" => true,
+                "data" => $results
+            );
+        }else{
+            return array(
+                "success" => false,
+                "data" => null
+            );
+        }
     }
     else {
-        $valid = false;
-        echo('Email or Password is incorrect');
+        return array(
+            "success" => false,
+            "data" => null
+        );
     }
-    return $valid;
-
 
 }
