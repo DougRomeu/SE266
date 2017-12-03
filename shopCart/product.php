@@ -35,6 +35,11 @@ if (!$_SESSION['logged_in']){
 
     <h3>Edit Existing Products</h3>
 
+    <form method="post" action="#">
+        <?php echo(getCategoryNames($db))?>
+        <input type="submit" name="action" value="Select">
+
+    </form>
 <?php
 include_once('assets/footer.php')
 ?>

@@ -76,14 +76,23 @@ switch ($action){
         }
         break;
     case 'Add':
-        $file = $_FILES['file']['name'];
-        $image = addslashes(file_get_contents($file));
+        $image = $_FILES['file']['name'];
         if($product != NULL && $price != NULL && $category != "Default") {
             addPro($db, $category, $product, $price, $image);
+        }
+        else{
+            echo("Please fill in data fields.");
         }
         break;
     case 'Update':
         echo updateCat($db, $category);
         header("Refresh:0");
+        break;
+    case 'Renew':
+        echo updatePro($db, $category, $product, $price, $image);
+        header("Refresh:0");
+        break;
+    case 'Select':
+        echo viewPro($db, $category);
         break;
 }
