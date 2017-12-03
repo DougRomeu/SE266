@@ -25,7 +25,7 @@ function getCategoryNames($db){
         $sql->execute();
         $categories = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
-            $form = "<form method='post' action='#'>" . PHP_EOL;
+            $form = "<br/><form method='post' action='#'>" . PHP_EOL;
             $form .= "<select name='category'><option value='default'>Select a Category</option>";
             foreach ($categories as $category) {
                 $form .= "<option  value='".$category['category_id']."'>" . $category['category'] . "</option>";

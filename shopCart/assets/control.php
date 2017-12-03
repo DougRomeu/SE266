@@ -6,10 +6,11 @@
  * Time: 6:17 PM
  */
 session_start();
-error_reporting(0);
+//error_reporting(0);
 require_once ("dbconn.php");
 include_once ("users.php");
 include_once ("categories.php");
+include_once ("products.php");
 
 $db = dbconn();
 
@@ -19,6 +20,9 @@ $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING) ?? ""
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) ?? NULL;
 
 $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING) ?? "";
+
+$product = filter_input(INPUT_POST, 'product', FILTER_SANITIZE_STRING) ?? "";
+$price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING) ?? "";
 
 
 $valid = false;
@@ -71,12 +75,12 @@ switch ($action){
             echo "Category cannot be left blank";
         }
         break;
-    case 'Select':
-
-        //display all info for selected category and allow user to add products/ update name/ and delete category
-        break;
-    case 'Delete':
-        //deletes product/ category
+    case 'Add':
+        $file = $_FILES['file']['name'];
+        $image = addslashes(file_get_contents($file));
+        if($product != NULL && $price != NULL && $category != "Default") {
+            addPro($db, $category, $product, $price, $image);
+        }
         break;
     case 'Update':
         echo updateCat($db, $category);
