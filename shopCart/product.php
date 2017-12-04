@@ -19,7 +19,7 @@ if (!$_SESSION['logged_in']){
 
     <h3>Add A New Product</h3>
 
-    <form method="post" action="#" enctype="multipart/form-data">
+    <form id="shop" method="post" action="#" enctype="multipart/form-data">
         <input type="text" placeholder="Product Name" name="product">
         <br />
         <input type="text" placeholder="Price" name="price">
@@ -33,13 +33,9 @@ if (!$_SESSION['logged_in']){
 
     <br />
 
-    <h3>Edit Existing Products</h3>
+<h3>Edit Existing Products</h3>
+<?php echo(viewPro($db))?>
 
-    <form method="post" action="#">
-        <?php echo(getCategoryNames($db))?>
-        <input type="submit" name="action" value="Select">
-
-    </form>
 <?php
 include_once('assets/footer.php')
 ?>

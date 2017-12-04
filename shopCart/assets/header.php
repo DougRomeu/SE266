@@ -23,7 +23,7 @@
         a:hover {color: #bf0000;}
         body {text-align: center; font-family: 'Monda', sans-serif;}
         #wrapper {border: 3px solid #7d0000; height: auto; width: 90%; position: relative; margin: auto; padding-bottom: 100px;}
-        form {padding-top: 25px; text-align: center}
+        form {padding-top: 25px; text-align: center;}
         nav {background-color: white; border: 3px solid #7d0000; text-align: center; width: 90%; position: relative; margin: auto; padding: 7px 0;}
     </style>
     <!-- javaScript goes here -->

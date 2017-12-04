@@ -85,7 +85,7 @@ function updateCat($db, $category){
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??
             filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING) ?? "";
 
-        $sql = $db->prepare("UPDATE categories SET category= :category WHERE category_id=:id");
+        $sql = $db->prepare("UPDATE categories SET category=:category WHERE category_id=:id");
         $sql->bindParam(':id', $id, PDO::PARAM_INT);
         $sql->bindParam(':category', $category);
         $sql->execute();

@@ -10,17 +10,12 @@ include_once('assets/control.php');
 include_once('assets/header.php');
 
 if (!$_SESSION['logged_in']){
-    header('Location: login.php'); //<- if not logged in, send them to log in page. Do not have any html data before this line.
+    header('Location: login.php'); //<- if not logged in, send them to log in page.
 }else{
     echo "User Is Logged In<br>";
     //print_r($_SESSION);
 }
 ?>
-
-<form method="POST" action="#">
-    <input type="submit" name="action" value="Logout"/>
-</form>
-
     <form action="category.php">
         <input type="submit" id="btnAddCat" name="addCat" value="Edit Categories">
     </form>
@@ -28,6 +23,9 @@ if (!$_SESSION['logged_in']){
         <input type="submit" id="btnAddPro" name="addPro" value="Edit Products">
     </form>
 
+    <form method="POST" action="#">
+        <input type="submit" name="action" value="Logout"/>
+    </form>
 <?php
 include_once('assets/footer.php')
 ?>

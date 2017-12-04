@@ -30,6 +30,9 @@ $valid = false;
 $hash = password_hash($password, PASSWORD_DEFAULT);
 $hashed = password_verify($password, $hash);
 
+$_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+
+
 switch ($action){
     case "Login":
         $login = loginUser($db, $email, $password);
@@ -89,7 +92,7 @@ switch ($action){
         header("Refresh:0");
         break;
     case 'Renew':
-        echo updatePro($db, $category, $product, $price, $image);
+        echo updatePro($db, $product, $price);
         header("Refresh:0");
         break;
     case 'Select':
