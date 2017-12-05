@@ -29,11 +29,11 @@ function viewPro($db){
         $products = $sql->fetchAll(PDO::FETCH_ASSOC);
         if ($sql->rowCount() > 0) {
             $table = "<table>" . PHP_EOL;
-            $table .= "<tr><th>Product Name</th><th>Price USD</th><th>Category ID</th>";
+            $table .= "<tr><th>Product Name</th><th>Price USD</th>";
             foreach ($products as $product) {
                 $table .= "<tr><td>" . $product['product'];
                 $table .= "</td><td>" . $product['price'];
-                $table .= "</td><td>" . $product['category_id'];
+                //$table .= "</td><td>" . $product['category_id'];
                 $table .= "</td><td><a href='update1.php?id=" . $product['product_id'] . "'>Update</a>";
                 $table .= "</td><td><a href='delete1.php?id=" . $product['product_id'] . "'>Delete</a>";
                 $table .= "</td></tr>";
@@ -110,9 +110,10 @@ function updateForm1($db){
     }
 }
 
-function displayProducts($db){
+function displayProducts($db, $category){
     try {
-        $sql = $db->prepare("SELECT * FROM products");
+        $sql = $db->prepare("SELECT * FROM products WHERE category_id=:category_id");
+        $sql->bindParam(':category_id', $category, PDO::PARAM_STR);
         $sql->execute();
 
         $products = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -123,12 +124,14 @@ function displayProducts($db){
                 $table .= "<tr><td>" . $product['product'];
                 $table .= "</td><td>" . $product['price'];
                 $table .= "</td><td>" . $product['image'];
-                $table .= "</td><td><a href='?id=" . $product['product_id'] . "'>Add to Cart</a>";
+                //$table .= "</td><td><a href='?id=" . $product['product_id'] . "'>Add to Cart</a>";
+                //$table .= "</td><td><input type='hidden' name='action' value='?id=" . $product['product_id'] . "'>";
+                $table .= "</td><td><input type='submit' name='action' value='Add to Cart'>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
         } else {
-            $table = "No products to report.";
+            $table = "<br /><br />No products to report. Please select a category to search by.";
         }
         return $table;
     } catch (PDOException $e) {

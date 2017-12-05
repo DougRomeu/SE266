@@ -95,7 +95,10 @@ switch ($action){
         echo updatePro($db, $product, $price);
         header("Refresh:0");
         break;
-    case 'Select':
-        echo viewPro($db, $category);
+    case 'Search':
+        //echo displayProducts($db, $category);
+        break;
+    case 'Add to Cart':
+        //Add selected product id to cart
         break;
 }

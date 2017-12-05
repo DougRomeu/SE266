@@ -97,7 +97,6 @@ function updateCat($db, $category){
     return $p;
 }
 
-
 function updateForm($db){
     try {
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING) ??

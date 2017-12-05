@@ -15,7 +15,14 @@ include_once('assets/header.php');
 <?php echo(getCategoryNames($db))?><input type="submit" name="action" value="Search">
 
 <?php
-echo(displayProducts($db));
+echo(displayProducts($db, $category));
+?>
+<br />
+<br />
+<h1>CART</h1>
+<!-- If cart session is empty, display empty cart-->
+<h4>Cart is currently empty...</h4>
 
+<?php
 include_once('assets/footer.php')
 ?>
