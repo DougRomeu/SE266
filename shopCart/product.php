@@ -22,7 +22,7 @@ if (!$_SESSION['logged_in']){
     <form id="shop" method="post" action="#" enctype="multipart/form-data">
         <input type="text" placeholder="Product Name" name="product">
         <br />
-        <input type="text" placeholder="Price" name="price">
+        <input type="text" placeholder="Price $USD" name="price">
         <br />
         <input type="file" name="file" id="file">
         <br />

@@ -28,6 +28,7 @@ echo(displayProducts($db, $category));
 
             if($price != -1){
                 $total += $price;
+                $_SESSION['total'] = $total;
             }
         }
 
@@ -42,8 +43,9 @@ echo(displayProducts($db, $category));
     </form>
     <br />
     <br />
+<form method="POST" action="#">
     <input type="submit" name="action" value="Clear Cart"/>
-
+</form>
 <?php
 include_once('assets/footer.php')
 ?>
