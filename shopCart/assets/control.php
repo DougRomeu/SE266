@@ -96,8 +96,8 @@ switch ($action){
         echo updatePro($db, $product, $price);
         header("Refresh:0");
         break;
-    case 'Search':
-        //echo displayProducts($db, $category);
+    case 'Clear Cart':
+        $_SESSION['cart'] = array();
         break;
     case 'Add to Cart':
         if($productId != "") {
@@ -111,9 +111,12 @@ switch ($action){
             header("Refresh:0");
         }
         break;
+<<<<<<< HEAD
     case 'Clear Cart':
         $_SESSION['cart'] = array();
         break;
+=======
+>>>>>>> shopCart
     case 'Checkout':
         header("Location: http://localhost/shopCart/login.php");
         die();

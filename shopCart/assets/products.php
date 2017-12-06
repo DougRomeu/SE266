@@ -36,6 +36,7 @@ function viewPro($db){
                 //$table .= "</td><td>" . $product['category_id'];
                 $table .= "</td><td><a href='update1.php?id=" . $product['product_id'] . "'>Update</a>";
                 $table .= "</td><td><a href='delete1.php?id=" . $product['product_id'] . "'>Delete</a>";
+                $table .= "</td><td><a href='uploads.php?id=" . $product['product_id'] . "'>Add Image</a>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
@@ -122,10 +123,8 @@ function displayProducts($db, $category){
             $table .= "<tr><th>Product Name</th><th>Price USD</th><th>Image</th>";
             foreach ($products as $product) {
                 $table .= "<tr><td>" . $product['product'];
-                $table .= "</td><td>" . $product['price'];
-                $table .= "</td><td>" . $product['image'];
-                //$table .= "</td><td><a href='?id=" . $product['product_id'] . "'>Add to Cart</a>";
-                //$table .= "</td><td><input type='hidden' name='action' value='?id=" . $product['product_id'] . "'>";
+                $table .= "</td><td>" . $product['price'] . "</td>";
+                $table .= "<td><img src='assets/images/" . $product['image'] . "' width=100px height=100px";
                 $table .= "</td><td><form method='POST' action='#'><input type='hidden' name='productId' value='" . $product['product_id'] . "'><input type='submit' name='action' value='Add to Cart'></form>";
                 $table .= "</td></tr>";
             }
@@ -150,6 +149,8 @@ function displayProduct($db, $id, $index){
         //Make the product stuff better looking
         echo "<div id='cart'>";
         print_r($product['product'] . " $" . $product['price']);
+        echo "<img src='assets/images/" . $product['image'] . "' width=100px height=100px";
+
 
         echo "<form method='POST' action='#'><input type='hidden' name='arrayId' value='$index'/><br /><input type='submit' name='action' value='Remove Product'/></form></div>";
         return $product["price"];
