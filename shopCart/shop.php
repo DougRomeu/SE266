@@ -42,7 +42,7 @@ echo(displayProducts($db, $category));
     </form>
     <br />
     <br />
-    <input type="submit" name="action" value="Clear Cart"/>
+    <!--<input type="submit" name="action" value="Clear Cart"/>-->
 
 <?php
 include_once('assets/footer.php')

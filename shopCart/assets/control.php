@@ -111,7 +111,7 @@ switch ($action){
             header("Refresh:0");
         }
         break;
-    case "Clear Cart":
+    case 'Clear Cart':
         $_SESSION['cart'] = array();
         break;
     case 'Checkout':
