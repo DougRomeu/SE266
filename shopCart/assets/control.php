@@ -111,12 +111,6 @@ switch ($action){
             header("Refresh:0");
         }
         break;
-<<<<<<< HEAD
-    case 'Clear Cart':
-        $_SESSION['cart'] = array();
-        break;
-=======
->>>>>>> shopCart
     case 'Checkout':
         header("Location: http://localhost/shopCart/login.php");
         die();
