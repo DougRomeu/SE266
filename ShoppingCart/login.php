@@ -8,37 +8,50 @@
         body {font-family: 'Monda', sans-serif;
             height: 100%;
             width: 100%;
-            position: relative;}
-        #wrapper {
-            background-image: url('../images/3.jpg');
-            background-repeat: no-repeat;
-            background-size: 100%;
-            position: fixed;
-            height: 100%;
-            width: 100%;
+            padding: 0;
+            margin:0;
+            position: absolute;}
+        *:focus{
+            outline:0;
         }
-        #blankSpace {
-            height: 140px;
-            width: 100%;}
+        #wrapper {
+            background-image: url('images/3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            /*position: fixed;*/
+            /*height: 100%;*/
+            /*width: 100%;*/
+            position:absolute;
+            top:0;
+            left:0;
+            bottom: 0;
+            right:0;
+        }
+
         #loginBox {
             background-color: #fafafa;
             width: 320px;
-            height: 440px;
+            height: 470px;
             margin: auto;
             box-shadow: -5px 8px 5px rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);;
             border-radius: 14px;
-            position: relative;}
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
         #loginHeader {
-            background-color: #7d0000;
+            background-image: url('images/lock.jpg');
             text-align: center;
             padding: 2px 0;
-            color: white;
+            color: #7d0000;
             border-top-left-radius: 14px;
             border-top-right-radius: 14px;}
         #formBox {
             width: 200px;
             margin: auto;}
-        #usernameBox {
+        #emailBox {
             margin: auto;
             text-align: center;
             color: #7d0000;}
@@ -70,19 +83,13 @@
             box-shadow: 0 10px 12px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);}
         #btnLogin:active {
             background-color: white;
+            color: #7d0000;
+            border: 2px solid #7d0000;
             box-shadow: 0 3px 4px 0 rgba(0,0,0,0.24), 0 4px 12px 0 rgba(0,0,0,0.19);
             transform: translateY(4px);}
         #btnLogin:focus {
             outline: none;
             transition-duration: 0.4s;}
-        #username {
-            height: 25px;
-            width: 190px;
-            border-radius: 8px;
-            padding-left: 10px;
-            border: 1px solid #7d0000;}
-        #username:focus {
-            outline: none;}
         #password {
             height: 25px;
             width: 190px;
@@ -91,13 +98,21 @@
             border: 1px solid #7d0000;}
         #password:focus {
             outline: none;}
+        #email {
+            height: 25px;
+            width: 190px;
+            border-radius: 8px;
+            padding-left: 10px;
+            border: 1px solid #7d0000;}
+        #email:focus {
+            outline: none;}
         h3 {
             margin-bottom: 0;}
         #forgotPasswordBox{
             width: 200px;
             height: 40px;
             color: #7d0000;
-            padding-top: 10px;
+            padding-top: 30px;
             text-align: center;}
         #fgtPass {
             text-decoration: none;
@@ -128,16 +143,16 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id="blankSpace">
-    </div>
+
     <div id="loginBox">
         <div id="loginHeader">
-            <h1>Please Sign-In</h1>
+            <h1>.</h1>
         </div>
         <div id="formBox">
-            <div id="usernameBox">
-                <h3>Username</h3>
-                <input type="text" id="username" name="username">
+            <form method="post" action="#">
+            <div id="emailBox">
+                <h3>Email</h3>
+                <input type="text" id="email" name="email">
             </div>
             <div id="passwordBox">
                 <h3>Password</h3>
@@ -150,12 +165,12 @@
                 <a href="#" id="fgtPass">Forgot Password?</a>
             </div>
             <div id="registerBox">
-                <a href="#" id="register">New? Register Here</a>
+                <a href="register.php" id="register">New? Register Here</a>
             </div>
+            </form>
         </div>
     </div>
-    <div id="blankSpace">
-    </div>
+
 </div>
 </body>
 </html>
