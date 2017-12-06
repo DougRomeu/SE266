@@ -20,8 +20,29 @@ echo(displayProducts($db, $category));
 <br />
 <br />
 <h1>CART</h1>
-<!-- If cart session is empty, display empty cart-->
-<h4>Cart is currently empty...</h4>
+<?php
+    $total = 0;
+    if(isset($_SESSION['cart']) || count($_SESSION['cart']) > 0){
+        foreach($_SESSION['cart'] as $index => $value){
+            $price = displayProduct($db, $value, $index);
+
+            if($price != -1){
+                $total += $price;
+            }
+        }
+
+        echo "<br /><br />Total: $  $total";
+    }else{
+        echo "<h4>Cart is currently empty...</h4>";
+    }
+    ?>
+<br />
+    <form action="checkout.php">
+        <input type="submit" id="btnCheckout" name="checkout" value="Checkout">
+    </form>
+    <br />
+    <br />
+    <input type="submit" name="action" value="Clear Cart"/>
 
 <?php
 include_once('assets/footer.php')

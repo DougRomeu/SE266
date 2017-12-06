@@ -126,7 +126,7 @@ function displayProducts($db, $category){
                 $table .= "</td><td>" . $product['image'];
                 //$table .= "</td><td><a href='?id=" . $product['product_id'] . "'>Add to Cart</a>";
                 //$table .= "</td><td><input type='hidden' name='action' value='?id=" . $product['product_id'] . "'>";
-                $table .= "</td><td><input type='submit' name='action' value='Add to Cart'>";
+                $table .= "</td><td><form method='POST' action='#'><input type='hidden' name='productId' value='" . $product['product_id'] . "'><input type='submit' name='action' value='Add to Cart'></form>";
                 $table .= "</td></tr>";
             }
             $table .= "</table>" . PHP_EOL;
@@ -137,4 +137,23 @@ function displayProducts($db, $category){
     } catch (PDOException $e) {
         die("there was a problem retrieving products err:1");
     }
+}
+
+function displayProduct($db, $id, $index){
+    $sql = $db->prepare("SELECT * FROM products WHERE product_id=:id");
+    $sql->bindParam(':id', $id, PDO::PARAM_INT);
+    $sql->execute();
+
+    if($sql->rowCount() > 0){
+        $product = $sql->fetch(PDO::FETCH_ASSOC);
+
+        //Make the product stuff better looking
+        echo "<div id='cart'>";
+        print_r($product['product'] . " $" . $product['price']);
+
+        echo "<form method='POST' action='#'><input type='hidden' name='arrayId' value='$index'/><br /><input type='submit' name='action' value='Remove Product'/></form></div>";
+        return $product["price"];
+    }
+
+    return -1;
 }

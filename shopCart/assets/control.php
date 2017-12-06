@@ -6,7 +6,7 @@
  * Time: 6:17 PM
  */
 session_start();
-//error_reporting(0);
+error_reporting(0);
 require_once ("dbconn.php");
 include_once ("users.php");
 include_once ("categories.php");
@@ -23,6 +23,8 @@ $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING) ?? "";
 
 $product = filter_input(INPUT_POST, 'product', FILTER_SANITIZE_STRING) ?? "";
 $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING) ?? "";
+$productId = filter_input(INPUT_POST, 'productId', FILTER_SANITIZE_STRING) ?? "";
+$arrayId = filter_input(INPUT_POST, 'arrayId', FILTER_SANITIZE_STRING) ?? "";
 
 
 $valid = false;
@@ -30,8 +32,7 @@ $valid = false;
 $hash = password_hash($password, PASSWORD_DEFAULT);
 $hashed = password_verify($password, $hash);
 
-$_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
-
+$_SESSION['cart'] = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
 switch ($action){
     case "Login":
@@ -99,6 +100,22 @@ switch ($action){
         //echo displayProducts($db, $category);
         break;
     case 'Add to Cart':
-        //Add selected product id to cart
+        if($productId != "") {
+            array_push($_SESSION['cart'], $productId);
+            header("Refresh:0");
+        }
+        break;
+    case 'Remove Product':
+        if($arrayId != "") {
+            array_splice($_SESSION['cart'], $arrayId, 1);
+            header("Refresh:0");
+        }
+        break;
+    case "Clear Cart":
+        $_SESSION['cart'] = array();
+        break;
+    case 'Checkout':
+        header("Location: http://localhost/shopCart/login.php");
+        die();
         break;
 }
