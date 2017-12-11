@@ -11,6 +11,7 @@ include_once("accounts.php");
 
 $db = dbconn();
 
+//User Input Data
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL) ?? "";
 $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING) ?? "";
 $heard = filter_input(INPUT_POST, 'heard_from', FILTER_SANITIZE_STRING) ?? "";
@@ -19,6 +20,7 @@ $comments = filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_STRING) ?? "";
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) ?? NULL;
 
+//------------------------------------------------------------------------------------------------------
 switch ($action) {
     case "Submit":
         if($email != NULL && $phone != NULL && $heard != NULL){

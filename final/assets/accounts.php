@@ -6,6 +6,8 @@
  * Time: 12:01 PM
  */
 
+
+//Add user entered data to the database
 function addRecord($db, $email, $phone, $heard, $contact, $comments){
     try{
         $sql = $db->prepare("INSERT INTO account (id, email, phone, heard, contact, comments) VALUES (NULL, :email, :phone, :heard, :contact, :comments)");
@@ -26,6 +28,7 @@ function addRecord($db, $email, $phone, $heard, $contact, $comments){
     }
 }
 
+//Check to see if email already exists in database
 function validateEmail($db, $email){
     $sql = $db->prepare("SELECT * FROM users WHERE email=:email");
     $sql->bindParam(':email', $email, PDO::PARAM_STR);
@@ -39,6 +42,7 @@ function validateEmail($db, $email){
     return $valid;
 }
 
+//Display the previously entered data for user
 function displayRecord($db, $lastID){
         $sql = $db->prepare("SELECT * FROM account WHERE id=:id");
         $sql->bindParam(':id', $lastID, PDO::PARAM_INT);
@@ -61,6 +65,7 @@ function displayRecord($db, $lastID){
         }
 }
 
+//Display all data
 function displayAll($db){
     try {
         $sql = $db->prepare("SELECT * FROM account");
