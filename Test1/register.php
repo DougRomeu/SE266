@@ -15,7 +15,7 @@
             outline:0;
         }
         #wrapper {
-            background-image: url('images/3.jpg');
+            background-image: url('images/arkhd5.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -32,7 +32,7 @@
         #loginBox {
             background-color: #fafafa;
             width: 320px;
-            height: 470px;
+            height: 550px;
             margin: auto;
             box-shadow: -5px 8px 5px rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);;
             border-radius: 14px;
@@ -51,7 +51,7 @@
         #formBox {
             width: 200px;
             margin: auto;}
-        #emailBox {
+        .emailBox {
             margin: auto;
             text-align: center;
             color: #7d0000;}
@@ -66,7 +66,7 @@
         #buttonBox {
             width:auto;
             text-align: center;
-            margin-top: 20px;}
+            margin-top: 30px;}
         #btnRegister {
             font-family: 'Monda', sans-serif;
             text-align: center;
@@ -110,13 +110,13 @@
             border: 1px solid #7d0000;}
         #password2:focus {
             outline: none;}
-        #email {
+        .email {
             height: 25px;
             width: 190px;
             border-radius: 8px;
             padding-left: 10px;
             border: 1px solid #7d0000;}
-        #email:focus {
+        .email:focus {
             outline: none;}
         h3 {
             margin-bottom: 0;}
@@ -146,9 +146,13 @@
         </div>
         <div id="formBox">
 <form method="post" action="#">
-    <div id="emailBox">
+    <div class="emailBox">
         <h3>Email</h3>
-        <input type="text" id="email" name="email">
+        <input type="text" class="email" name="email">
+    </div>
+    <div class="emailBox">
+        <h3>Username</h3>
+        <input type="text" class="email" name="username">
     </div>
     <div id="passwordBox">
         <h3>Password</h3>

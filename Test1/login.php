@@ -15,7 +15,7 @@
             outline:0;
         }
         #wrapper {
-            background-image: url('images/3.jpg');
+            background-image: url('images/arkhd5.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
